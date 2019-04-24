@@ -9,6 +9,7 @@ import setColorAction from "actions/setColorAction";
 class FixedPlugin extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       classes: "dropdown show"
     };
@@ -159,7 +160,8 @@ class FixedPlugin extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state
+  ...state.colorReducer,
+  ...state.bgReducer
 });
 
 const mapDispatchToProps = dispatch => ({
