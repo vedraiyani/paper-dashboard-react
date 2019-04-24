@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import Button from "components/CustomButton/CustomButton.jsx";
 
+import { connect } from "react-redux";
+import setBgAction from "actions/setBgAction";
+import setColorAction from "actions/setColorAction";
+
 class FixedPlugin extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +14,7 @@ class FixedPlugin extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick() {
     if (this.state.classes === "dropdown") {
       this.setState({ classes: "dropdown show" });
@@ -17,6 +22,7 @@ class FixedPlugin extends Component {
       this.setState({ classes: "dropdown" });
     }
   }
+  
   render() {
     return (
       <div className="fixed-plugin">
@@ -152,4 +158,13 @@ class FixedPlugin extends Component {
   }
 }
 
-export default FixedPlugin;
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+  handleBgClick: (payload) => dispatch(setBgAction(payload)),
+  handleActiveClick: (payload) => dispatch(setColorAction(payload))
+});
+
+export default connect( mapStateToProps, mapDispatchToProps)(FixedPlugin);

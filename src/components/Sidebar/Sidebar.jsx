@@ -6,6 +6,8 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 import logo from "logo.svg";
 
+import { connect } from "react-redux";
+
 var ps;
 
 class Sidebar extends React.Component {
@@ -79,4 +81,8 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(Sidebar);
