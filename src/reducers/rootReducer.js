@@ -1,16 +1,9 @@
-export default (state, action) => {
-  switch (action.type) {
-    case "bgChange":
-      return {
-        ...state,
-        bgColor: action.payload
-      };
-    case "colorChange":
-      return {
-        ...state,
-        activeColor: action.payload
-      };
-    default:
-      return state;
-  }
-};
+import { combineReducers } from 'redux';
+
+import bgReducer from 'reducers/bgReducer'
+import colorReducer from 'reducers/colorReducer'
+
+export default combineReducers({
+  bgReducer,
+  colorReducer
+})

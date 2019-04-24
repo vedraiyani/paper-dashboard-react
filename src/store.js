@@ -4,7 +4,7 @@ import rootReducer from "reducers/rootReducer";
 
 const loggerMiddleware = createLogger();
 
-function configureStore(state = { bgColor: "black", activeColor: "info" }) {
+function configureStore(state = { bgReducer: {bgColor: "black"}, colorReducer: {activeColor: "info"} }) {
   return createStore(rootReducer,state,applyMiddleware(
     loggerMiddleware
   ));
